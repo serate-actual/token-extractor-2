@@ -41,7 +41,6 @@ public class ResponseTableModel extends DefaultTableModel{
     @Override
     public void addRow(Object[] rowData){
         this.dataVector.add(rowData);
-        System.out.println(rowData[0]);
         super.newDataAvailable(null);
     }
 
