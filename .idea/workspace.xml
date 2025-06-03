@@ -9,30 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea68de5c-7506-4ea7-931a-234ed6507a6d" name="Changes" comment="Basic project setup">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/token_extractor_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ContextMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RequestTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ResponseTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ScopeSelector.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ScopeSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SettingsPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SettingsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="ea68de5c-7506-4ea7-931a-234ed6507a6d" name="Changes" comment="Preliminary mockup of the UI for token selector tab is roughed out, needs some tweaks. No functionality added to the Token Selector tab">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ExtractionPair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RequestResponseTab.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RequestResponseTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tokenextractor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TokenExtractor2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RequestResponseSelectorPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ResponseTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ResponseTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ScopeSelector.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScopeSelector.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ScopeSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScopeSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SettingsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SettingsPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TokenExtractorTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TokenSelectorPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +78,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "408",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "419",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Artifacts",
@@ -173,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747320682542</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added functionality to send requests/responses to the extension. &#10;Starting creation of UI for the token selector panel">
+      <option name="closed" value="true" />
+      <created>1748891691835</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748891691835</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +189,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic project setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic project setup" />
+    <MESSAGE value="Added functionality to send requests/responses to the extension. &#10;Starting creation of UI for hte" />
+    <MESSAGE value="Added functionality to send requests/responses to the extension. &#10;Starting creation of UI for the token selector panel" />
+    <MESSAGE value="Preliminary mockup of the UI for token selector tab is roughed out, needs some tweaks. No functionality added to the Token Selector tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Preliminary mockup of the UI for token selector tab is roughed out, needs some tweaks. No functionality added to the Token Selector tab" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

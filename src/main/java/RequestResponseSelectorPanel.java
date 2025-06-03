@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.JTableHeader;
+import java.awt.event.ActionEvent;
 
 public class RequestResponseSelectorPanel {
     private JPanel ui;
@@ -24,8 +25,10 @@ public class RequestResponseSelectorPanel {
     private boolean requestSelected;
     private boolean responseSelected;
     private HttpRequest selectedRequest;
-    private HttpRequest selectedResponse;
+    private HttpResponse selectedResponse;
     private MontoyaApi api;
+    private ExtractionPair[] extractionPairs;
+    private JTabbedPane extractorTabs;
 
     public RequestResponseSelectorPanel(MontoyaApi api, RequestTableModel requestTableModel, ResponseTableModel responseTableModel){
         this.requestTableModel = requestTableModel;
@@ -34,6 +37,10 @@ public class RequestResponseSelectorPanel {
         this.setResponseTableModel(responseTableModel);
         this.requestSelected = false;
         this.responseSelected = false;
+        this.api = api;
+    }
+    public void setExtractorTabs(JTabbedPane extractorTabs){
+        this.extractorTabs = extractorTabs;
     }
     public JPanel getUi() {
         return ui;
@@ -71,7 +78,6 @@ public class RequestResponseSelectorPanel {
         // TODO: place custom component creation code here
         this.splitPane1 = new JSplitPane();
         splitPane1.setResizeWeight(0.5);
-
         this.requestPane = new JEditorPane();
         this.requestPane.setEditable(false);
         this.responsePane = new JEditorPane();
@@ -99,8 +105,7 @@ public class RequestResponseSelectorPanel {
                 if (this.getSelectedRowCount() == 1) {
                     // one row is selected
                     requestSelected = true;
-                    System.out.println(requestTableModel.getValueAt(this.getSelectedRow(),3).toString());
-                    HttpRequest selectedRequest = HttpRequest.httpRequest(requestTableModel.getValueAt(this.getSelectedRow(), 3));
+                    selectedRequest = HttpRequest.httpRequest(requestTableModel.getValueAt(this.getSelectedRow(), 3));
                     try {
                         requestPane.setText(selectedRequest.toString());
                     }catch(Exception exception) {
@@ -126,7 +131,6 @@ public class RequestResponseSelectorPanel {
                 super.tableChanged(e);
                 this.revalidate();
                 this.repaint();
-                System.out.println("response table changed");
             }
 
             @Override
@@ -135,8 +139,7 @@ public class RequestResponseSelectorPanel {
                     System.out.println(responseTableModel.getRowCount() + " rows in the tablemodel");
                     // one row is selected
                     responseSelected = true;
-                    System.out.println(responseTableModel.getValueAt(this.getSelectedRow(),1).toString());
-                    HttpResponse selectedResponse = HttpResponse.httpResponse(responseTableModel.getValueAt(this.getSelectedRow(), 1));
+                    selectedResponse = HttpResponse.httpResponse(responseTableModel.getValueAt(this.getSelectedRow(), 1));
                     try {
                         responsePane.setText(selectedResponse.toString());
                     }catch(Exception exception) {
@@ -146,6 +149,7 @@ public class RequestResponseSelectorPanel {
                     // more than one row is selected - not allowed
                     responseSelected = false;
                     responsePane.setText("Please only select one response");
+                    HttpResponse selectedResponse = null;
                 }
                 isExtractable();
                 super.valueChanged(e);
@@ -154,5 +158,12 @@ public class RequestResponseSelectorPanel {
         };
         this.responseTable.repaint();
         this.requestTable.repaint();
+        this.extractButton = new JButton(){
+            @Override
+            protected void fireActionPerformed(ActionEvent event){
+                ExtractionPair newPair = new ExtractionPair(selectedRequest, selectedResponse, extractorTabs, api);
+                super.fireActionPerformed(event);
+            }
+        };
     }
 }

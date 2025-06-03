@@ -1,7 +1,7 @@
 import javax.swing.*;
 import burp.api.montoya.MontoyaApi;
 
-public class TokenExtractorTab {
+public class TokenExtractorTab{
     private JPanel ui;
     private JTabbedPane JTabs;
     private SettingsPanel settingsPanel;
@@ -13,9 +13,10 @@ public class TokenExtractorTab {
         this.requestResponseSelectorPanel = new RequestResponseSelectorPanel(api, requestTableModel, responseTableModel);
         this.settingsPanel = new SettingsPanel();
         this.tokenSelectorPanel = new TokenSelectorPanel();
+        this.requestResponseSelectorPanel.setExtractorTabs(this.tokenSelectorPanel.getExtractorTabs());
         this.JTabs.addTab("Selector", requestResponseSelectorPanel.getUi());
+        this.JTabs.addTab("Token Selector", tokenSelectorPanel.getUi());
         this.JTabs.addTab("Settings",settingsPanel.getUi());
-        this.JTabs.addTab("Token Selector",tokenSelectorPanel.getUi());
         this.api = api;
     }
 
@@ -27,5 +28,6 @@ public class TokenExtractorTab {
     }
     private void createUIComponents() {
         // TODO: place custom component creation code here
+
     }
 }

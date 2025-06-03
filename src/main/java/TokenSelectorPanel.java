@@ -1,32 +1,46 @@
 import javax.swing.*;
+import java.awt.event.ItemEvent;
 
 public class TokenSelectorPanel {
     private JPanel ui;
     private JTabbedPane extractorTabs;
     private JButton extractorToggle;
-    private JComboBox comboBox1;
-    private JScrollPane requestText;
-    private JPanel requestScopePanel;
-    private JScrollPane responseText;
-    private JPanel responseScopePanel;
-    private ScopeSelector requestScope;
-    private ScopeSelector responseScope;
+    private JList toolSelector;
+    private JCheckBox selectAllTools;
+    private String[] tools;
 
     public TokenSelectorPanel(){
-
     }
 
     public JPanel getUi() {
         return ui;
     }
 
+    public JTabbedPane getExtractorTabs() {
+        return extractorTabs;
+    }
+
+    public void toggleTools(boolean state){
+        if(state){
+            this.toolSelector.setEnabled(false);
+            this.toolSelector.setSelectionInterval(0,tools.length);
+        } else {
+            this.toolSelector.setEnabled(true);
+            this.toolSelector.removeSelectionInterval(0,tools.length);
+        }
+    }
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        this.requestScopePanel = new JPanel();
-        this.responseScopePanel = new JPanel();
-        this.requestScope = new ScopeSelector();
-        this.responseScope = new ScopeSelector();
-        this.responseScopePanel.add(responseScope.getUi());
-        this.requestScopePanel.add(requestScope.getUi());
+        this.tools = new String[]{"Proxy", "Scanner", "Repeater", "Intruder", "Extensions"};
+        this.toolSelector = new JList(){
+        };
+        this.toolSelector.setListData(tools);
+        this.selectAllTools = new JCheckBox(){
+            @Override
+            protected void fireItemStateChanged(ItemEvent event) {
+                toggleTools(this.isSelected());
+                super.fireItemStateChanged(event);
+            }
+        };
     }
 }
